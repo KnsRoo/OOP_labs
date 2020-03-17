@@ -66,17 +66,19 @@ bool List::contains(List lst){
     list *A = this->head;
     list *B = lst.head;
     int elem = lst.get(0);
-    while (A->inf != elem){
-        A = A->next;
-    }
-    while (B){
-        if (A->inf == B->inf){
-            A = A->next;
-            B = B->next;
-        } else {
-            ret = false;
-            break;
-        }
+    while (A){
+	    while (A->inf != elem){
+		A = A->next;
+	    }
+	    while (B){
+		if (A->inf == B->inf){
+		    A = A->next;
+		    B = B->next;
+		} else {
+		    ret = false;
+		    break;
+		}
+	    }
     }
     return ret;
 }
